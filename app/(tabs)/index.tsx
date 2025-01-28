@@ -1,74 +1,131 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import Ionicons from '@expo/vector-icons/build/Ionicons';
+import React from 'react';
+import { useRouter } from 'expo-router';
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Foundation from '@expo/vector-icons/Foundation';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import TextCustom from '@/components/ui/CustomText';
+import { formatCurrency } from '@/utils/HelperFunctions';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+const HomeScreen = () => {
+  const router = useRouter()
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
-}
+    <ScrollView className=" px-4 pb-20 pt-16 " contentContainerStyle={{ flexGrow: 1 }}>
+     
+      <View className="">
+        <TextCustom className="dark:text-gray-200 text-gray-500 text-sm my-2 mb-6">Hi Ehi,</TextCustom>
+        <View>
+          <TextCustom className="text-4xl  dark:text-white font-Poppins_bold">{formatCurrency(1234, )}</TextCustom>
+        </View>
+      </View>
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+      
+      <View className="flex-row items-center my-4 ">
+        <FontAwesome5 name="coins" size={18} color="green" />
+        <TextCustom className="text-gray-500 ml-2 dark:text-white">POINTS</TextCustom>
+      </View>
+
+     
+      <TextCustom className="text-gray-500 dark:text-white my-4">Here are some things you can do</TextCustom>
+      <ScrollView className="flex-1">
+    
+        <View className='flex-row justify-between my-2'>
+          <TouchableOpacity className="bg-green-100 dark:bg-green-400 p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/WhatsappForm')}>
+            <FontAwesome name="whatsapp" size={24} color="black" />
+            <TextCustom className="text-lg font-medium">Boost Whatsapp</TextCustom>
+            <TextCustom className="text-sm text-gray-500">
+            Get more customers on whatsapp
+            </TextCustom>
+          </TouchableOpacity>
+
+        
+          <TouchableOpacity className="dark:bg-neutral-800 bg-neutral-200 p-4 rounded-lg w-[45%] text-white" onPress={()=>router.navigate('/forms/XForm')}>
+          <FontAwesome6 name="x-twitter" size={24} color="gray" />
+            <TextCustom className="text-lg font-medium dark:text-gray-200 text-gray-500">X impressions</TextCustom>
+            <TextCustom className="text-sm text-gray-500 dark:text-white">
+              Boost your X account with more followers
+            </TextCustom>
+          </TouchableOpacity>
+        </View>
+        <View className='flex-row justify-between my-2'>
+          <TouchableOpacity className="bg-blue-100 dark:bg-blue-400 p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/Facebook')}>
+          <FontAwesome name="facebook-square" size={24} color="black" />
+            <TextCustom className="text-lg font-medium">Facebook boost</TextCustom>
+            <TextCustom className="text-sm text-gray-500">
+              Get more likes and follow of Facebook
+            </TextCustom>
+          </TouchableOpacity>
+
+          {/* Pay Bill */}
+          <TouchableOpacity className="bg-blue-300 dark:bg-blue-600 p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/Website')}>
+          <Foundation name="web" size={24} color="black" />
+            <TextCustom className="text-lg font-medium">Website visit</TextCustom>
+            <TextCustom className="text-sm text-gray-500">
+              Get more website visits
+            </TextCustom>
+          </TouchableOpacity>
+        </View>
+        <View className='flex-row justify-between my-2'>
+          <TouchableOpacity className="bg-pink-100 dark:bg-pink-400 p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/Instagram')}>
+          <FontAwesome name="instagram" size={24} color="black" />
+            <TextCustom className="text-lg font-medium">Insta boost</TextCustom>
+            <TextCustom className="text-sm text-gray-500">
+              Get more likes and follow of Instagram
+            </TextCustom>
+          </TouchableOpacity>
+
+          {/* Pay Bill */}
+          <TouchableOpacity className="bg-purple-100 dark:bg-purple-400  p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/TickTock')}>
+          <FontAwesome5 name="tiktok" size={24} color="black" />
+            <TextCustom className="text-lg font-medium">TicTok Boost</TextCustom>
+            <TextCustom className="text-sm text-gray-500">
+            Get more likes and follow of TicTok
+            </TextCustom>
+          </TouchableOpacity>
+        </View>
+        
+      </ScrollView>
+     
+
+      {/* Favorites Section */}
+      <TextCustom className="text-gray-500 mt-8">Transfer points to friends</TextCustom>
+      <View className="flex-row mt-4 items-start">
+        {/* Add Button */}
+        <TouchableOpacity className="bg-gray-200 w-14 h-14 rounded-full justify-center items-center">
+          <TextCustom className="text-xl font-bold">+</TextCustom>
+        </TouchableOpacity>
+
+        {/* Favorite Contact 1 */}
+        <TouchableOpacity className="ml-4 items-center">
+          <Image
+            source={{
+              uri: 'https://randomuser.me/api/portraits/women/44.jpg', // Replace with contact image
+            }}
+            className="w-14 h-14 rounded-full"
+          />
+          <TextCustom className="text-sm mt-1">Grace L.</TextCustom>
+        </TouchableOpacity>
+
+        {/* Favorite Contact 2 */}
+        <TouchableOpacity className="ml-4 items-center">
+          <Image
+            source={{
+              uri: 'https://randomuser.me/api/portraits/men/32.jpg', // Replace with contact image
+            }}
+            className="w-14 h-14 rounded-full"
+          />
+          <TextCustom className="text-sm mt-1">Lawrence A.</TextCustom>
+        </TouchableOpacity>
+      </View>
+
+      <View className='h-[30vh] '>
+
+      </View>
+    
+    </ScrollView>
+  );
+};
+
+export default HomeScreen;

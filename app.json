@@ -32,7 +32,11 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+     [ "expo-font",
+        {
+          "fonts": ["./assets/fonts/Geologica.ttf"]
+        }]
     ],
     "experiments": {
       "typedRoutes": true
