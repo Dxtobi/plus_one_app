@@ -62,12 +62,12 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
         onLayout={handleLayout}
         onPress={() => setIsOpen(!isOpen)}
         activeOpacity={0.8}
-        className={`flex-row items-center justify-between p-3 border rounded-lg dark:bg-green-800 dark:text-neutral-100 text-neutral-800  dark:border-white border-green-500 ${inputClassName}`}
+        className={`flex-row items-center justify-between p-3 border rounded-lg  text-neutral-100   ${inputClassName}`}
       >
-        <Text className="text-base dark:text-green-600 text-green-700 flex-1 mr-2">
+        <Text className="text-base text-white  flex-1 mr-2">
           {displayText}
         </Text>
-        <Text className=" dark:text-green-600 text-green-700 text-lg">
+        <Text className=" text-white text-lg">
           {isOpen ? '▲' : '▼'}
         </Text>
       </TouchableOpacity>
@@ -84,7 +84,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
               width: inputLayout.width,
               maxHeight: maxOptionsHeight,
             }}
-            className={`absolute z-10 border rounded-lg shadow-lg ${optionsClassName} dark:bg-neutral-900 bg-neutral-200 border dark:border-white border-green-500`}
+            className={`absolute z-10 border rounded-lg shadow-lg   dark:border-white border-green-500 ${optionsClassName}`}
           >
             <ScrollView
               bounces={false}
@@ -102,7 +102,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
                   } ${inputClassName}`}
                   activeOpacity={0.7}
                 >
-                  <Text className="text-base dark:text-green-600 text-green-700">
+                  <Text className="text-base text-white">
                     {option.label}
                   </Text>
                 </TouchableOpacity>

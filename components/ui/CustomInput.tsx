@@ -14,8 +14,8 @@ interface TextCustomProps {
 const CustomInput: React.FC<TextCustomProps> = ({ className = "", onChangeText_, placeholder, keyboardType, error, value }) => {
   return (
     <View>
-        {error&&<TextCustom>{error}</TextCustom>}
-        <TextInput className={`${className} text-xl font-light dark:text-neutral-100 text-neutral-800 border dark:border-white border-green-500  placeholder:text-gray-400`} placeholder={placeholder} value={value}  onChangeText={onChangeText_} keyboardType={keyboardType}></TextInput>
+        {error&&<TextCustom className="text-red-500 my-2">{error}</TextCustom>}
+        <TextInput className={` text-xl font-light dark:text-neutral-100 text-neutral-800 border   placeholder:text-gray-400 font-Exo_m ${className}`} placeholder={placeholder} value={value}  onChangeText={onChangeText_} keyboardType={keyboardType}></TextInput>
     </View>
   );
 };

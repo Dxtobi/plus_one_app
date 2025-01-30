@@ -10,7 +10,28 @@ module.exports = {
         Poppins_thin: ['Poppins_thin'],
         Poppins_bold: ['Poppins_bold'],
         Exo: ['Exo'],
+        Exo_bold: ['Exo_bold'],
+        Exo_m:['Exo_m']
+
        
+      },
+
+      colors: {
+        // Social media brand colors
+        facebook: '#1877F2',
+        whatsapp: '#25D366',
+        twitter: '#303030',
+        instagram: '#E1306C',
+        tiktok: '#FF0050',
+        linkedin: '#0077B5',
+        
+        // Button text colors (white for all except twitter)
+        'facebook-btn-text': '#FFFFFF',
+        'whatsapp-btn-text': '#FFFFFF',
+        'twitter-btn-text': '#FFFFFF',
+        'instagram-btn-text': '#FFFFFF',
+        'tiktok-btn-text': '#FFFFFF',
+        'linkedin-btn-text': '#FFFFFF'
       }
     },
   },

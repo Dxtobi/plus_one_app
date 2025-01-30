@@ -2,6 +2,9 @@ import CustomButton from '@/components/ui/Button';
 import CustomInput from '@/components/ui/CustomInput';
 import DropdownInput from '@/components/ui/DropDown';
 import GoBackHeader from '@/components/ui/Header';
+import { brands_colors } from '@/constants/Colors';
+import { options_ } from '@/constants/SocialCollableActionsOptions';
+import { FontAwesome } from '@expo/vector-icons';
 import React, { SetStateAction, useState } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -15,6 +18,8 @@ const WhatsappForm: React.FC = () => {
     const [_name, set_name] = useState('');
 
     const [selected, setSelected] = useState('');
+    const [selected_A, setSelected_A] = useState('');
+
   
    
 
@@ -31,17 +36,15 @@ const WhatsappForm: React.FC = () => {
             </GoBackHeader>
         <SafeAreaView className=" h-[100vh] px-6 gap-6" >
 
-            <View className="items-center ">
-              <Image
-                source={{ uri: 'https://i.pinimg.com/736x/7b/26/10/7b261080350fab8d67e18a4458463553.jpg' }}
-                className="w-24 h-24 bg-gray-300 rounded-full mb-4"
-                />
+            <View className="items-center mt-10">
+                <FontAwesome name="instagram" size={80} color={brands_colors.instagram} className=' dark:text-white ' />
             </View>
 
          
               <CustomInput
                 value={_name}
-                className="  p-4 rounded-lg "
+                className="  p-4 rounded-lg dark:border-instagram  border-instagram"
+
                 keyboardType="default"
                 onChangeText_={(text: SetStateAction<string>)=>set_name(text) } 
                 placeholder={'Display Name'}                 
@@ -50,10 +53,10 @@ const WhatsappForm: React.FC = () => {
               
               <CustomInput
                 value={_url}
-                className="  p-4 rounded-lg "
+                className="  p-4 rounded-lg dark:border-instagram  border-instagram"
                 keyboardType="url"
                 onChangeText_={(text: SetStateAction<string>)=>set_url(text) } 
-                placeholder={'Whatsapp Link'}                 
+                placeholder={'Instagram Profile/Post URL'}                 
                />
 
               
@@ -62,13 +65,25 @@ const WhatsappForm: React.FC = () => {
                 selectedValue={selected}
                 onSelect={setSelected}
                 placeholder="Points"
-                containerClassName="mb-4"
-                optionsClassName=""
+                containerClassName="mb-4  "
+                optionsClassName="dark:bg-instagram  bg-instagram"
                 maxOptionsHeight={200}
-                inputClassName="  p-4 rounded-lg "
+                inputClassName="  p-4 rounded-lg dark:bg-instagram  bg-instagram border border-instagram"
+            />
+
+            <DropdownInput
+                
+                selectedValue={selected_A}
+                onSelect={setSelected_A}
+                options={options_}
+                placeholder="Action"
+                containerClassName="mb-4  "
+                optionsClassName="dark:bg-instagram  bg-instagram"
+                maxOptionsHeight={200}
+                inputClassName="  p-4 rounded-lg dark:bg-instagram  bg-instagram border border-instagram"
             />
            
-            <CustomButton text={'Get More Contacts'} onPress={()=>{}}/>
+            <CustomButton text={'Boost Insta'} onPress={()=>{}} className='dark:bg-instagram  bg-instagram'/>
         
        
         </SafeAreaView>

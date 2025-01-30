@@ -5,11 +5,16 @@ import TextCustom from '@/components/ui/CustomText';
 
 const demoTasks = [
   { id: '1', date: '2025-01-22', title: 'Pay rent', completed: false, reward: '5 points' },
-  { id: '2', date: '2025-01-23', title: 'Meeting with clients', completed: false, reward: '10 points' },
-  { id: '3', date: '2025-01-24', title: 'Buy some food', completed: true, reward: '2 points' },
-  { id: '4', date: '2025-01-25', title: 'Appointment', completed: false, reward: '15 points' },
-  { id: '5', date: '2025-01-26', title: 'Follow Account', completed: false, reward: '20 points' },
-  { id: '6', date: '2025-01-26', title: 'Like Post', completed: false, reward: '8 points' },
+  { id: '2', date: '2025-01-23', title: 'Comment', completed: false, reward: '10 points' },
+  { id: '3', date: '2025-01-24', title: 'Like ', completed: true, reward: '2 points' },
+  { id: '4', date: '2025-01-25', title: 'Follow ', completed: false, reward: '15 points' },
+  { id: '5', date: '2025-01-26', title: 'Follow ', completed: false, reward: '20 points' },
+  { id: '6', date: '2025-01-27', title: 'Like ', completed: false, reward: '8 points' },
+  { id: '7', date: '2025-01-29', title: 'Comment', completed: false, reward: '10 points' },
+  { id: '8', date: '2025-01-29', title: 'Like ', completed: true, reward: '2 points' },
+  { id: '9', date: '2025-01-29', title: 'Follow ', completed: false, reward: '15 points' },
+  { id: '10', date: '2025-01-29', title: 'Follow ', completed: false, reward: '20 points' },
+  { id: '11', date: '2025-01-29', title: 'Like ', completed: false, reward: '8 points' },
 ];
 
 const getCurrentWeekDates = () => {
@@ -38,8 +43,8 @@ const getCurrentWeekDates = () => {
   return dates;
 };
 
-const ToDoApp = () => {
-  const [selectedDate, setSelectedDate] = useState(getCurrentWeekDates()[0]);
+const TaskScreen = () => {
+  const [selectedDate, setSelectedDate] = useState(getCurrentWeekDates()[getCurrentWeekDates().length-1]);
   const [tasks, setTasks] = useState(demoTasks);
   const [weekDates, setWeekDates] = useState(getCurrentWeekDates());
   const scrollViewRef = useRef<ScrollView>(null);
@@ -85,14 +90,14 @@ const ToDoApp = () => {
               onPress={() => setSelectedDate(date)}
             >
               <Text
-                className={`text-xl font-light  ${
+                className={`text-xl font-Poppins  ${
                   date === selectedDate ? 'text-white' : 'text-black'
                 }`}
               >
                 {new Date(date).toDateString().split(' ')[0]}
               </Text>
               <Text
-                className={`font-light text-5xl ${
+                className={`font-Poppins pt-[14px]  text-5xl ${
                   date === selectedDate ? 'text-white' : 'text-black'
                 }`}
               >
@@ -107,13 +112,19 @@ const ToDoApp = () => {
         data={filteredTasks}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => handleTaskCompletion(item.id)} className={`flex-row justify-between items-center p-3 mb-2 rounded-xl  ${item.completed ? 'bg-neutral-100 dark:bg-neutral-950':'bg-neutral-200 dark:bg-neutral-900'}`}>
-            <TextCustom
-              className={`text-base ${item.completed ? 'line-through':'text-3xl'}`}
-            >
-              {item.title}
+          <TouchableOpacity onPress={() => handleTaskCompletion(item.id)} className={`flex-row justify-between items-end p-3 mb-2 rounded-xl  ${item.completed ? 'bg-neutral-100 dark:bg-neutral-950':'bg-neutral-200 dark:bg-neutral-900'}`} disabled={item.completed}>
+           
+           <View>
+            <TextCustom className={`  font-Poppins_bold ${item.completed && ' text-gray-300'}`}>
+              FaceBook: Margin Ritha
             </TextCustom>
-            <TouchableOpacity onPress={() => handleTaskCompletion(item.id)}>
+            <TextCustom
+                className={`text-base ${item.completed ? 'line-through text-gray-400':''} font-Poppins text-xl`}
+              >
+                {item.title}
+              </TextCustom>
+           </View>
+            <TouchableOpacity onPress={() => handleTaskCompletion(item.id)} disabled={item.completed}>
               
               <Text className="text-green-600 text-sm">{item.reward}</Text>
 
@@ -127,4 +138,4 @@ const ToDoApp = () => {
   );
 };
 
-export default ToDoApp;
+export default TaskScreen;

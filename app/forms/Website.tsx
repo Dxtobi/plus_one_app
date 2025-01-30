@@ -2,6 +2,8 @@ import CustomButton from '@/components/ui/Button';
 import CustomInput from '@/components/ui/CustomInput';
 import DropdownInput from '@/components/ui/DropDown';
 import GoBackHeader from '@/components/ui/Header';
+import { brands_colors } from '@/constants/Colors';
+import { FontAwesome, Foundation } from '@expo/vector-icons';
 import React, { SetStateAction, useState } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -31,17 +33,14 @@ const WhatsappForm: React.FC = () => {
             </GoBackHeader>
         <SafeAreaView className=" h-[100vh] px-6 gap-6" >
 
-            <View className="items-center ">
-              <Image
-                source={{ uri: 'https://i.pinimg.com/736x/7b/26/10/7b261080350fab8d67e18a4458463553.jpg' }}
-                className="w-24 h-24 bg-gray-300 rounded-full mb-4"
-                />
+            <View className="items-center mt-10">
+                <Foundation  name="web" size={80} color={brands_colors.linkedin} className=' dark:text-white ' />
             </View>
 
          
               <CustomInput
                 value={_name}
-                className="  p-4 rounded-lg "
+                className="  p-4 rounded-lg  border-linkedin dark:border-linkedin"
                 keyboardType="default"
                 onChangeText_={(text: SetStateAction<string>)=>set_name(text) } 
                 placeholder={'Display Name'}                 
@@ -50,25 +49,24 @@ const WhatsappForm: React.FC = () => {
               
               <CustomInput
                 value={_url}
-                className="  p-4 rounded-lg "
+                className="  p-4 rounded-lg  border-linkedin dark:border-linkedin"
                 keyboardType="url"
                 onChangeText_={(text: SetStateAction<string>)=>set_url(text) } 
-                placeholder={'Whatsapp Link'}                 
+                placeholder={'Website URL'}                 
                />
 
               
                <DropdownInput
-                
                 selectedValue={selected}
                 onSelect={setSelected}
                 placeholder="Points"
-                containerClassName="mb-4"
-                optionsClassName=""
+                containerClassName="mb-4 "
+                optionsClassName="dark:bg-linkedin  bg-linkedin border-linkedin"
                 maxOptionsHeight={200}
-                inputClassName="  p-4 rounded-lg "
+                inputClassName="  p-4 rounded-lg dark:bg-linkedin  bg-linkedin"
             />
            
-            <CustomButton text={'Get More Contacts'} onPress={()=>{}}/>
+            <CustomButton text={'Get More Traffics'} onPress={()=>{}} className=' dark:bg-linkedin  bg-linkedin'/>
         
        
         </SafeAreaView>

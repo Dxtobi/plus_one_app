@@ -13,8 +13,8 @@ interface ButtonCustomProps {
 
 const CustomButton: React.FC<ButtonCustomProps> = ({ className = "", children, isDisabled, isLoading=false, text, onPress }) => {
   return (
-    <TouchableOpacity disabled={isDisabled} className={`${className} text-xl font-light  bg-green-300 dark:bg-green-800 rounded-2xl p-4 justify-center my-8 flex-row`} onPress={onPress} >
-       {!isLoading?<Text className="dark:text-neutral-100 text-neutral-100 m-auto w-fit text-center text-xl">{text}</Text>:<Loading/>}
+    <TouchableOpacity disabled={isDisabled} className={` text-xl font-light   rounded-lg p-4 justify-center my-8 flex-row ${className}`} onPress={onPress} >
+       {!isLoading?<Text className="dark:text-neutral-100 text-neutral-100 m-auto w-fit text-center font-Exo_bold">{text}</Text>:<Loading/>}
     </TouchableOpacity>
   );
 };

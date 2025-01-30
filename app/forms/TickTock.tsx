@@ -2,6 +2,8 @@ import CustomButton from '@/components/ui/Button';
 import CustomInput from '@/components/ui/CustomInput';
 import DropdownInput from '@/components/ui/DropDown';
 import GoBackHeader from '@/components/ui/Header';
+import { brands_colors } from '@/constants/Colors';
+import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import React, { SetStateAction, useState } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -37,10 +39,13 @@ const TikTok: React.FC = () => {
             </GoBackHeader>
         <SafeAreaView className=" h-[100vh] px-6 gap-6 mt-20" >
 
-         
+            <View className="items-center">
+                <FontAwesome5 name="tiktok" size={80} color={brands_colors.tiktok} />
+            </View>
+
               <CustomInput
                 value={_name}
-                className="  p-4 rounded-lg "
+                className="  p-4 rounded-lg dark:border-tiktok  border-tiktok"
                 keyboardType="default"
                 onChangeText_={(text: SetStateAction<string>)=>set_name(text) } 
                 placeholder={'Display Name'}                 
@@ -49,10 +54,10 @@ const TikTok: React.FC = () => {
               
               <CustomInput
                 value={_url}
-                className="  p-4 rounded-lg "
+                className="  p-4 rounded-lg dark:border-tiktok  border-tiktok"
                 keyboardType="url"
                 onChangeText_={(text: SetStateAction<string>)=>set_url(text) } 
-                placeholder={'X url'}                 
+                placeholder={'Tiktok URL'}                 
                />
 
             <DropdownInput
@@ -60,22 +65,21 @@ const TikTok: React.FC = () => {
                 selectedValue={selectedx}
                 onSelect={setSelectedx}
                 placeholder="Instruction"
-                containerClassName="mb-4"
-                optionsClassName=""
+                containerClassName="mb-4  "
+                optionsClassName="dark:bg-tiktok  bg-tiktok"
                 maxOptionsHeight={200}
-                inputClassName="  p-4 rounded-lg "
+                inputClassName="  p-4 rounded-lg dark:bg-tiktok  bg-tiktok border border-tiktok"
             />
             <DropdownInput
                 selectedValue={selectedp}
                 onSelect={setSelectedp}
-                placeholder="Points"
-                containerClassName="mb-4"
-                optionsClassName=""
+                containerClassName="mb-4  "
+                optionsClassName="dark:bg-tiktok  bg-tiktok"
                 maxOptionsHeight={200}
-                inputClassName="  p-4 rounded-lg "
+                inputClassName="  p-4 rounded-lg dark:bg-tiktok  bg-tiktok border border-tiktok"
             />
            
-            <CustomButton text={'Get More Contacts'} onPress={()=>{}}/>
+            <CustomButton text={'Boost Tiktok'} onPress={()=>{}} className='dark:bg-tiktok  bg-tiktok'/>
         
        
         </SafeAreaView>

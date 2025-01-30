@@ -8,23 +8,25 @@ import Foundation from '@expo/vector-icons/Foundation';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import TextCustom from '@/components/ui/CustomText';
 import { formatCurrency } from '@/utils/HelperFunctions';
+import { useColorScheme } from 'nativewind';
 
 const HomeScreen = () => {
   const router = useRouter()
+  const {colorScheme} = useColorScheme()
   return (
     <ScrollView className=" px-4 pb-20 pt-16 " contentContainerStyle={{ flexGrow: 1 }}>
      
       <View className="">
         <TextCustom className="dark:text-gray-200 text-gray-500 text-sm my-2 mb-6">Hi Ehi,</TextCustom>
         <View>
-          <TextCustom className="text-4xl  dark:text-white font-Poppins_bold">{formatCurrency(1234, )}</TextCustom>
+          <Text className="text-5xl py-4 dark:text-green-500 text-green-600 font-Exo_bold">{formatCurrency(1234)}</Text>
         </View>
       </View>
 
       
       <View className="flex-row items-center my-4 ">
         <FontAwesome5 name="coins" size={18} color="green" />
-        <TextCustom className="text-gray-500 ml-2 dark:text-white">POINTS</TextCustom>
+        <Text className=" ml-2 dark:text-green-500 text-green-600">POINTS</Text>
       </View>
 
      
@@ -32,8 +34,8 @@ const HomeScreen = () => {
       <ScrollView className="flex-1">
     
         <View className='flex-row justify-between my-2'>
-          <TouchableOpacity className="bg-green-100 dark:bg-green-400 p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/WhatsappForm')}>
-            <FontAwesome name="whatsapp" size={24} color="black" />
+          <TouchableOpacity className="bg-green-100 dark:bg-whatsapp p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/WhatsappForm')}>
+            <FontAwesome name="whatsapp" size={24} color={colorScheme === 'dark' ? 'white' : 'black'} />
             <TextCustom className="text-lg font-medium">Boost Whatsapp</TextCustom>
             <TextCustom className="text-sm text-gray-500">
             Get more customers on whatsapp
@@ -41,17 +43,17 @@ const HomeScreen = () => {
           </TouchableOpacity>
 
         
-          <TouchableOpacity className="dark:bg-neutral-800 bg-neutral-200 p-4 rounded-lg w-[45%] text-white" onPress={()=>router.navigate('/forms/XForm')}>
-          <FontAwesome6 name="x-twitter" size={24} color="gray" />
-            <TextCustom className="text-lg font-medium dark:text-gray-200 text-gray-500">X impressions</TextCustom>
-            <TextCustom className="text-sm text-gray-500 dark:text-white">
+          <TouchableOpacity className="bg-twitter  p-4 rounded-lg w-[45%] text-white dar" onPress={()=>router.navigate('/forms/XForm')}>
+          <FontAwesome6 name="x-twitter" size={24} color={colorScheme === 'dark' ? 'white' : 'white'} />
+            <TextCustom className="text-lg font-medium text-gray-100 ">X impressions</TextCustom>
+            <TextCustom className="text-sm text-white">
               Boost your X account with more followers
             </TextCustom>
           </TouchableOpacity>
         </View>
         <View className='flex-row justify-between my-2'>
-          <TouchableOpacity className="bg-blue-100 dark:bg-blue-400 p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/Facebook')}>
-          <FontAwesome name="facebook-square" size={24} color="black" />
+          <TouchableOpacity className="bg-blue-100 dark:bg-facebook p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/Facebook')}>
+          <FontAwesome name="facebook-square" size={24} color={colorScheme === 'dark' ? 'white' : 'black'} />
             <TextCustom className="text-lg font-medium">Facebook boost</TextCustom>
             <TextCustom className="text-sm text-gray-500">
               Get more likes and follow of Facebook
@@ -60,7 +62,7 @@ const HomeScreen = () => {
 
           {/* Pay Bill */}
           <TouchableOpacity className="bg-blue-300 dark:bg-blue-600 p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/Website')}>
-          <Foundation name="web" size={24} color="black" />
+          <Foundation name="web" size={24} color={colorScheme === 'dark' ? 'white' : 'black'} />
             <TextCustom className="text-lg font-medium">Website visit</TextCustom>
             <TextCustom className="text-sm text-gray-500">
               Get more website visits
@@ -68,8 +70,8 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
         <View className='flex-row justify-between my-2'>
-          <TouchableOpacity className="bg-pink-100 dark:bg-pink-400 p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/Instagram')}>
-          <FontAwesome name="instagram" size={24} color="black" />
+          <TouchableOpacity className="bg-pink-100 dark:bg-instagram p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/Instagram')}>
+          <FontAwesome name="instagram" size={24} color={colorScheme === 'dark' ? 'white' : 'black'} />
             <TextCustom className="text-lg font-medium">Insta boost</TextCustom>
             <TextCustom className="text-sm text-gray-500">
               Get more likes and follow of Instagram
@@ -77,8 +79,8 @@ const HomeScreen = () => {
           </TouchableOpacity>
 
           {/* Pay Bill */}
-          <TouchableOpacity className="bg-purple-100 dark:bg-purple-400  p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/TickTock')}>
-          <FontAwesome5 name="tiktok" size={24} color="black" />
+          <TouchableOpacity className="bg-purple-100 dark:bg-tiktok  p-4 rounded-lg w-[45%]" onPress={()=>router.navigate('/forms/TickTock')}>
+          <FontAwesome5 name="tiktok" size={24} color={colorScheme === 'dark' ? 'white' : 'black'} />
             <TextCustom className="text-lg font-medium">TicTok Boost</TextCustom>
             <TextCustom className="text-sm text-gray-500">
             Get more likes and follow of TicTok

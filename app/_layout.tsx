@@ -23,7 +23,10 @@ SplashScreen_.preventAutoHideAsync();
     Poppins: require('@/assets/fonts/Poppins-Regular.ttf'),
     Poppins_thin: require('@/assets/fonts/Poppins-Thin.ttf'),
     Poppins_bold: require('@/assets/fonts/Poppins-SemiBold.ttf'),
-    Exo: require('@/assets/fonts/Exo-VariableFont_wght.ttf')
+    Exo: require('@/assets/fonts/Exo-VariableFont_wght.ttf'),
+    Exo_bold: Exo_600SemiBold,
+    Exo_m:Exo_500Medium
+
     
   });
  

@@ -2,26 +2,36 @@ import CustomButton from '@/components/ui/Button';
 import CustomInput from '@/components/ui/CustomInput';
 import DropdownInput from '@/components/ui/DropDown';
 import GoBackHeader from '@/components/ui/Header';
+import { brands_colors } from '@/constants/Colors';
+import { options_ } from '@/constants/SocialCollableActionsOptions';
+import { FontAwesome } from '@expo/vector-icons';
+import { useColorScheme } from 'nativewind';
 import React, { SetStateAction, useState } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const WhatsappForm: React.FC = () => {
-    const [whatsapp, setWhatsapp] = useState('');
-    const [username, setUsername] = useState('');
+const FacebookForm: React.FC = () => {
+   
 
     const [point, set_point] = useState('');
     const [_url, set_url] = useState('');
     const [_name, set_name] = useState('');
 
     const [selected, setSelected] = useState('');
+    const [selected_A, setSelected_A] = useState('');
+    const [error, setError] = useState('');
+
+
   
    
-
+    const { colorScheme } = useColorScheme()
     const handleSubmit = (e: React.FormEvent) => {
+        if (_url.trim().length < 5 || _name.trim().length < 5 ){
+            console.log('----')
+            return setError('Only valid input')
+        }
         e.preventDefault();
-        console.log('Whatsapp:', whatsapp);
-        console.log('Username:', username);
+        
     };
 
     return (
@@ -31,29 +41,27 @@ const WhatsappForm: React.FC = () => {
             </GoBackHeader>
         <SafeAreaView className=" h-[100vh] px-6 gap-6" >
 
-            <View className="items-center ">
-              <Image
-                source={{ uri: 'https://i.pinimg.com/736x/7b/26/10/7b261080350fab8d67e18a4458463553.jpg' }}
-                className="w-24 h-24 bg-gray-300 rounded-full mb-4"
-                />
+            <View className="items-center mt-10">
+                <FontAwesome name="facebook-square" size={80} color={brands_colors.facebook} className=' dark:text-white ' />
             </View>
 
          
               <CustomInput
                 value={_name}
-                className="  p-4 rounded-lg "
+                 className="  p-4 rounded-lg border-facebook dark:border-facebook"
                 keyboardType="default"
                 onChangeText_={(text: SetStateAction<string>)=>set_name(text) } 
                 placeholder={'Display Name'}                 
+                error={error}
                />
 
               
               <CustomInput
                 value={_url}
-                className="  p-4 rounded-lg "
+                className="  p-4 rounded-lg border-facebook dark:border-facebook"
                 keyboardType="url"
                 onChangeText_={(text: SetStateAction<string>)=>set_url(text) } 
-                placeholder={'Whatsapp Link'}                 
+                placeholder={'Facebook URL Post/Page'}                 
                />
 
               
@@ -62,13 +70,25 @@ const WhatsappForm: React.FC = () => {
                 selectedValue={selected}
                 onSelect={setSelected}
                 placeholder="Points"
-                containerClassName="mb-4"
-                optionsClassName=""
+                containerClassName="mb-4  "
+                optionsClassName="dark:bg-facebook  bg-facebook"
                 maxOptionsHeight={200}
-                inputClassName="  p-4 rounded-lg "
+                inputClassName="  p-4 rounded-lg dark:bg-facebook  bg-facebook border border-facebook"
+                />
+
+             <DropdownInput
+                
+                selectedValue={selected_A}
+                onSelect={setSelected_A}
+                options={options_}
+                placeholder="Actions"
+                containerClassName="mb-4  "
+                optionsClassName="dark:bg-facebook  bg-facebook"
+                maxOptionsHeight={200}
+                inputClassName="  p-4 rounded-lg dark:bg-facebook  bg-facebook border border-facebook"
             />
            
-            <CustomButton text={'Get More Contacts'} onPress={()=>{}}/>
+            <CustomButton text={'Boost Facebook'} onPress={handleSubmit} className='bg-facebook dark:bg-facebook'/>
         
        
         </SafeAreaView>
@@ -76,4 +96,4 @@ const WhatsappForm: React.FC = () => {
     );
 };
 
-export default WhatsappForm;
+export default FacebookForm;
