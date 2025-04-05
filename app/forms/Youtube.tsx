@@ -26,10 +26,10 @@ const WhatsappForm: React.FC = () => {
 
     const handleSubmit = async () => {
        // Validate inputs
-       if (name.trim().length < 5 || url.trim().length < 5) {
-         setError('Please provide valid input for all fields.');
-         return;
-       }
+    //    if (name.trim().length < 5 || url.trim().length < 5) {
+    //      setError('Please provide valid input for all fields.');
+    //      return;
+    //    }
    
        if (!selected || !selected_A) {
          setError('Please select points and actions.');
@@ -42,7 +42,7 @@ const WhatsappForm: React.FC = () => {
            title: name,
            displayname:name,
            description: selected_A, 
-           platform: 'instagram', 
+           platform: 'youtube', 
            duration: selected,
            url,
          };
@@ -80,13 +80,12 @@ const WhatsappForm: React.FC = () => {
         <SafeAreaView className=" h-[100vh] px-6 gap-6" >
 
             <View className="items-center mt-10">
-                <FontAwesome name="instagram" size={80} color={brands_colors.instagram} className=' dark:text-white ' />
+                <FontAwesome name="youtube" size={80} color={brands_colors.youtube} className=' dark:text-white ' />
             </View>
 
-         
               <CustomInput
                 value={name}
-                className="  p-4 rounded-lg dark:border-instagram  border-instagram"
+                className={`  p-4 rounded-lg dark:border-[#FF0000]  border-[#FF0000]`}
 
                 keyboardType="default"
                 onChangeText_={(text: SetStateAction<string>)=>set_name(text) } 
@@ -96,36 +95,35 @@ const WhatsappForm: React.FC = () => {
               
               <CustomInput
                 value={url}
-                className="  p-4 rounded-lg dark:border-instagram  border-instagram"
+                className={`  p-4 rounded-lg dark:border-[#FF0000]  border-[#FF0000]`}
                 keyboardType="url"
                 onChangeText_={(text: SetStateAction<string>)=>set_url(text) } 
-                placeholder={'Instagram Profile/Post URL'}                 
+                placeholder={'Youtube Profile/Post URL'}                 
                />
-
-            <DropdownInput
-                selectedValue={selected_A}
-                onSelect={setSelected_A}
-                options={options_}
-                placeholder="Action"
-                containerClassName="mb-4  "
-                optionsClassName="dark:bg-instagram  bg-instagram"
-                maxOptionsHeight={200}
-                inputClassName="  p-4 rounded-lg dark:bg-instagram  bg-instagram border border-instagram"
-            />
                <DropdownInput
                 
                 selectedValue={selected}
                 onSelect={setSelected}
                 placeholder="Points"
                 containerClassName="mb-4  "
-                optionsClassName="dark:bg-instagram  bg-instagram"
+                optionsClassName="dark:bg-youtube  bg-youtube"
                 maxOptionsHeight={600}
-                inputClassName="  p-4 rounded-lg dark:bg-instagram  bg-instagram border border-instagram"
+                inputClassName="  p-4 rounded-lg dark:bg-youtube bg-youtube border border-youtube"
             />
 
-         
+            <DropdownInput
+                
+                selectedValue={selected_A}
+                onSelect={setSelected_A}
+                options={options_}
+                placeholder="Action"
+                containerClassName="mb-4  "
+                optionsClassName="dark:bg-youtube  bg-youtube"
+                maxOptionsHeight={800}
+                inputClassName="  p-4 rounded-lg dark:bg-youtube  bg-youtube border border-youtube"
+            />
            
-            <CustomButton text={'Boost Insta'} onPress={handleSubmit} className='dark:bg-instagram  bg-instagram'/>
+            <CustomButton text={'Boost Youtube'} onPress={()=>handleSubmit()} className='dark:bg-youtube  bg-youtube'/>
         
        
         </SafeAreaView>

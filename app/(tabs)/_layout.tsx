@@ -65,9 +65,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="wallet"
+        name="gigs"
         options={{
-          title: 'Wallet',
+          title: 'Gigs',
           tabBarIcon: ({ color }) => <FontAwesome name="tasks" size={24} color={color} />,
         }}
       />

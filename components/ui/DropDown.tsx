@@ -19,11 +19,12 @@ interface DropdownInputProps {
 
 
  const options_ = [
-      { label: '500 - 1h', value: '500' },
-      { label: '1000 - 3h', value: '1000' },
-      { label: '2000 - 7h', value: '2000' },
-      { label: '5000 - 12h', value: '5000' },
-      { label: '15000 - 42h', value: '15000' },
+    { label: '1000 - 1h', value: '1' },      // 1 hour, 1000 points
+    { label: '4800 - 6h', value: '6' },      // 6 hours, 4800 points
+    { label: '8600 - 12h', value: '12' },    // 12 hours, 8600 points
+    { label: '12400 - 1day', value: '24' },   // 24 hours (1 day), 12400 points
+    { label: '16200 - 2 days', value: '48' },   // 48 hours (2 days), 16200 points
+    { label: '20000 - 1 week', value: '168' }, // 168 hours (1 week), 20000 points
     ];
 const DropdownInput: React.FC<DropdownInputProps> = ({
   options = options_,
@@ -33,7 +34,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
   containerClassName = '',
   inputClassName = '',
   optionsClassName = '',
-  maxOptionsHeight = 160,
+  maxOptionsHeight = 800,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputLayout, setInputLayout] = useState({ 
@@ -84,7 +85,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
               width: inputLayout.width,
               maxHeight: maxOptionsHeight,
             }}
-            className={`absolute z-10 border rounded-lg shadow-lg   dark:border-white border-green-500 ${optionsClassName}`}
+            className={`absolute z-10 border rounded-lg shadow-lg   dark:border-white  ${optionsClassName}`}
           >
             <ScrollView
               bounces={false}

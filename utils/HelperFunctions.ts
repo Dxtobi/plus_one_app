@@ -40,3 +40,20 @@ type CurrencyFormatOptions = {
     }
   };
   
+  export const transformTasks = (backendData: any[], userId: string) => {
+    return backendData.map((task) => {
+      
+      const isCompleted = task.completedBy.includes(userId);
+  
+      return {
+        id: task._id, // Use the unique ID from the backend
+        date: task.createdAt.split('T')[0], // Extract the date part (YYYY-MM-DD)
+        title: task.description, // Use the title from the backend
+        completed: isCompleted, // Determine if the task is completed
+        reward: `${task.reward} points`, // Format the reward as a string
+        platform:task.platform,
+        displayname:task?.displayname||'',
+        url:task.url
+      };
+    });
+  };

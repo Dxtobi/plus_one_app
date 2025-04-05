@@ -9,6 +9,7 @@ import { BlurView } from "@react-native-community/blur";
 import TextCustom from '@/components/ui/CustomText';
 import CustomInput from '@/components/ui/CustomInput';
 import CustomButton from '@/components/ui/Button';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function HomeScreen() {
   const { logout } = useAuth();
@@ -51,12 +52,12 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView className="flex-1 ">
-      {/* Settings Screen */}
+     
       <View className="p-6">
-        {/* Settings Header */}
+        
         <Text className="text-2xl font-bold dark:text-white mb-6">Settings</Text>
 
-        {/* Account Section */}
+        
         <View>
           <Text className="text-gray-400 text-lg mb-2">Account</Text>
           <TouchableOpacity
@@ -64,7 +65,6 @@ export default function HomeScreen() {
             onPress={() => setModalVisible(true)}
           >
             <View className="flex-row items-center">
-              {/* User Icon */}
               <Image
                 source={{ uri: 'https://i.pinimg.com/736x/7b/26/10/7b261080350fab8d67e18a4458463553.jpg' }}
                 className="w-12 h-12 bg-gray-300 rounded-full mr-4"
@@ -81,7 +81,7 @@ export default function HomeScreen() {
        
 
         {/* Settings Options */}
-        <View>
+        <View className="gap-4">
           <Text className="text-gray-400 text-lg mb-2">Settings</Text>
 
           {/* Language */}
@@ -101,6 +101,11 @@ export default function HomeScreen() {
             <Text className="dark:text-white font-medium">Dark Mode</Text>
             <Text className="text-gray-500">System</Text>
           </View>
+          {/* LOG OUT */}
+          <TouchableOpacity className="flex-row items-center justify-between dark:bg-neutral-900 bg-neutral-200 p-4 rounded-lg " onPress={()=>logout()}>
+            <Text className="dark:text-white font-medium ">Logout</Text>
+            <AntDesign   name="logout" size={24} color="gray" />
+          </TouchableOpacity>
         </View>
       </View>
       {/* Account Info Modal */}

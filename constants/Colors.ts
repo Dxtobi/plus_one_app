@@ -33,10 +33,12 @@ export const brands_colors =  {
   instagram: '#E1306C',
   tiktok: '#FF0050',
   linkedin: '#0077B5',
+  youtube: '#FF0000',
   
   
   // Button text colors (white for all except twitter)
   'facebook-btn-text': '#FFFFFF',
+  'youtube-btn-text': '#FFFFFF',
   'whatsapp-btn-text': '#FFFFFF',
   'twitter-btn-text': '#FFFFFF',
   'instagram-btn-text': '#FFFFFF',

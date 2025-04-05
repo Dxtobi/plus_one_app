@@ -69,8 +69,7 @@ SplashScreen_.preventAutoHideAsync();
           <Stack.Screen name="forms/Facebook" options={{ headerShown: false }} />
           <Stack.Screen name="forms/Instagram" options={{ headerShown: false }} />
           <Stack.Screen name="forms/Website" options={{ headerShown: false }} />
-
-
+          <Stack.Screen name="forms/Youtube" options={{ headerShown: true }} />
           <Stack.Screen name="+not-found" />
           </>
         )}

@@ -7,7 +7,7 @@ interface TextCustomProps {
 
 const TextCustom: React.FC<TextCustomProps> = ({ className = "", children }) => {
   return (
-    <Text className={` dark:text-neutral-100 text-neutral-800 ${className} `}>
+    <Text className={` dark:text-neutral-100 text-neutral-800 ${className}`}>
       {children}
     </Text>
   );
