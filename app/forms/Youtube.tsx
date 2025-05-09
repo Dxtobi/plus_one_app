@@ -122,10 +122,8 @@ const WhatsappForm: React.FC = () => {
                 maxOptionsHeight={800}
                 inputClassName="  p-4 rounded-lg dark:bg-youtube  bg-youtube border border-youtube"
             />
-           
             <CustomButton text={'Boost Youtube'} onPress={()=>handleSubmit()} className='dark:bg-youtube  bg-youtube'/>
-        
-       
+
         </SafeAreaView>
         </ScrollView>
     );

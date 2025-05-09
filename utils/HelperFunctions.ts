@@ -13,7 +13,7 @@ type CurrencyFormatOptions = {
     options: CurrencyFormatOptions = {}
   ): string => {
     const {
-      currency = 'USD',
+      currency = '₦',
       locale = 'en-US',
       currencyDisplay = 'symbol',
       minimumFractionDigits = 2,

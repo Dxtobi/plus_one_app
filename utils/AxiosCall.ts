@@ -5,7 +5,7 @@ import { AxiosRequestConfig, AxiosError } from 'axios';
 
 
 const customAxios = axios.create({
-  baseURL: 'http://192.168.1.101:5000/api', 
+  baseURL: 'http://192.168.244.83:5000/api', 
   timeout: 10000, 
 });
 

@@ -19,12 +19,12 @@ interface DropdownInputProps {
 
 
  const options_ = [
-    { label: '1000 - 1h', value: '1' },      // 1 hour, 1000 points
-    { label: '4800 - 6h', value: '6' },      // 6 hours, 4800 points
-    { label: '8600 - 12h', value: '12' },    // 12 hours, 8600 points
-    { label: '12400 - 1day', value: '24' },   // 24 hours (1 day), 12400 points
-    { label: '16200 - 2 days', value: '48' },   // 48 hours (2 days), 16200 points
-    { label: '20000 - 1 week', value: '168' }, // 168 hours (1 week), 20000 points
+    { label: '500 - 1h', value: '1' },      // 1 hour, 1000 points
+    { label: '2,800 - 6h', value: '6' },      // 6 hours, 4800 points
+    { label: '4,600 - 12h', value: '12' },    // 12 hours, 8600 points
+    { label: '6,400 - 1day', value: '24' },   // 24 hours (1 day), 12400 points
+    { label: '8,200 - 2 days', value: '48' },   // 48 hours (2 days), 16200 points
+    { label: '10,000 - 1 week', value: '168' }, // 168 hours (1 week), 20000 points
     ];
 const DropdownInput: React.FC<DropdownInputProps> = ({
   options = options_,

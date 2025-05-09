@@ -39,22 +39,19 @@ const HomeScreen = () => {
 
   return (
     <ScrollView className=" px-4 pb-20 pt-16 " contentContainerStyle={{ flexGrow: 1 }}>
-     
       <View className="">
         <TextCustom className="dark:text-gray-200 text-gray-500 text-sm my-2 mb-6">Hi {user?.username},</TextCustom>
         <View>
-          <Text className="text-5xl py-4 dark:text-green-500 text-green-600 font-Exo_bold">{formatCurrency(user?.balance)}</Text>
+          <Text className="text-5xl py-4 dark:text-green-500 text-green-600 font-Exo_bold">{formatCurrency(user?.balance, {currency:'NGN', currencyDisplay:'symbol'})}</Text>
         </View>
       </View>
 
-      
       <View className="flex-row items-center my-4 ">
         <FontAwesome5 name="coins" size={18} color="green" />
         <Text className=" ml-2 dark:text-green-500 text-green-600">POINTS</Text>
         <Text className=" ml-2 dark:text-green-500 text-green-600">{user?.points  }</Text>
       </View>
 
-     
       <TextCustom className="text-gray-500 dark:text-white my-4">Here are some things you can do</TextCustom>
       <ScrollView className="flex-1">
     
